@@ -76,7 +76,7 @@ const currentTest = ref('triangle');
       <CommissionTester v-if="currentTest === 'commission'" />
       <TelecomTester v-if="currentTest === 'telecom'" />
       <ForumTester v-if="currentTest === 'forum'" />
-    </main>
+  </main>
   </div>
 </template>
 

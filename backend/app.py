@@ -511,6 +511,41 @@ def run_commission_custom():
     
     return jsonify(result_data)
 
+@app.route('/api/run-system-tests', methods=['GET'])
+def run_system_tests():
+    import subprocess, os, re
+    systest_dir = os.path.join(os.path.dirname(__file__), 'systemtest')
+    log_path = os.path.join(systest_dir, 'result.log')
+    try:
+        # 执行 pytest 并输出到 result.log
+        subprocess.run(
+            ['pytest', '--tb=short', '-v', '>', 'result.log'],
+            cwd=systest_dir,
+            shell=True,
+            check=False
+        )
+        # 读取日志内容
+        with open(log_path, 'r', encoding='utf-8') as f:
+            log_content = f.read()
+        # 解析每个测试用例的结果
+        # 匹配类似 test_002_login.py::Test002::test_002 PASSED [100%]
+        pattern = re.compile(r'^(\S+\.py)::(\S+)\s+(PASSED|FAILED|SKIPPED|ERROR)\s+\[.*\]$', re.MULTILINE)
+        results = []
+        for match in pattern.finditer(log_content):
+            results.append({
+                'file': match.group(1),
+                'case': match.group(2),
+                'result': match.group(3)
+            })
+        return jsonify({'log': log_content, 'cases': results})
+    except Exception as e:
+        return jsonify({'error': str(e), 'log': '', 'cases': []}), 500
+
+@app.route('/api/run-unit-tests', methods=['GET'])
+def run_unit_tests():
+    # TODO: Implement unit testing logic
+    return jsonify({'message': 'Unit tests not implemented yet.'})
+
 @app.route('/api/run-forum-tests', methods=['GET'])
 def run_forum_tests():
     return jsonify({

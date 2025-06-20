@@ -1,0 +1,17 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.7, pytest-7.4.4, pluggy-1.0.0 -- C:\myprogram\Anaconda\python.exe
+cachedir: .pytest_cache
+rootdir: D:\dev\testplan\backend\systemtest
+plugins: anyio-4.2.0
+collecting ... collected 8 items
+
+test_001_login_fail.py::Test001::test_001 PASSED                         [ 12%]
+test_002_login.py::Test002::test_002 PASSED                              [ 25%]
+test_003_modify_userinfo_fail.py::Test003::test_003 PASSED               [ 37%]
+test_004_modify_userinfo.py::Test004::test_004 PASSED                    [ 50%]
+test_005_write_articles.py::Test008::test_008 PASSED                     [ 62%]
+test_006_write_articles_fail.py::Test007::test_007 PASSED                [ 75%]
+test_007_delete_articles.py::Test009::test_009 PASSED                    [ 87%]
+test_008_follow_user.py::Test011::test_011 PASSED                        [100%]
+
+======================== 8 passed in 120.07s (0:02:00) ========================
