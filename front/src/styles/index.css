@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-primary: #4f46e5;
+  --color-primary-light: #675ef7;
+  --color-success: #10b981;
+  --color-danger: #ef4444;
+
+  --color-text: #1f2937;
+  --color-text-light: #6b7280;
+  --color-bg: #f9fafb;
+  --color-bg-card: #ffffff;
+  --color-border: #e5e7eb;
+
+  --border-radius: 8px;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Element Plus Overrides */
+.el-button--primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+.el-button--primary:hover,
+.el-button--primary:focus {
+    background-color: var(--color-primary-light);
+    border-color: var(--color-primary-light);
+}
+
+.el-tag--success {
+    background-color: #ecfdf5;
+    color: #065f46;
+    border-color: #a7f3d0;
+}
+
+.el-tag--danger {
+    background-color: #fef2f2;
+    color: #991b1b;
+    border-color: #fecaca;
+}
+
+.el-table th.el-table__cell {
+  background-color: var(--color-bg) !important;
+  color: var(--color-text-light) !important;
+  font-weight: 600 !important;
+}
+
+.el-table {
+    --el-table-border-color: var(--color-border);
+    --el-table-header-bg-color: var(--color-bg);
+    --el-table-tr-bg-color: var(--color-bg-card);
+    --el-table-row-hover-bg-color: var(--color-bg);
+}
+
+.el-table .el-table__cell {
+    text-align: center !important;
+    padding: 18px 0 !important;
+    font-size: 16px !important;
+}
+
+.el-statistic .el-statistic__head {
+    font-size: 17px !important;
+}
+
+.el-statistic .el-statistic__content {
+    font-size: 32px !important;
+}
+
+/* 美化表格 */
+.el-table {
+  border-radius: 16px;
+  box-shadow: 0 4px 24px 0 rgba(60,60,100,0.07);
+  overflow: hidden;
+  font-size: 17px;
+}
+.el-table th.el-table__cell {
+  background: #f3f4f6 !important;
+  color: #3b3b4f !important;
+  font-weight: 700 !important;
+  font-size: 17px !important;
+  letter-spacing: 1px;
+}
+.el-table .el-table__row {
+  transition: background 0.18s;
+}
+.el-table .el-table__row:hover {
+  background: #f0f7ff !important;
+}
+.el-table .el-table__row:nth-child(2n) {
+  background: transparent;
+}
+.el-table .el-table__cell {
+  font-size: 17px !important;
+  padding: 18px 0 !important;
+  text-align: center !important;
+  border-right: none !important;
+}
+.el-table .el-table__cell.input-mono {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  color: #6366f1;
+  font-weight: 600;
+  font-size: 17px;
+}
+/* 结果高亮 */
+.table-result-pass {
+  background: #e6f9ed;
+  color: #10b981;
+  border-radius: 12px;
+  padding: 4px 16px;
+  font-weight: 700;
+  display: inline-block;
+}
+.table-result-fail {
+  background: #fef2f2;
+  color: #ef4444;
+  border-radius: 12px;
+  padding: 4px 16px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.el-table--border .el-table__inner-wrapper::after,
+.el-table--border::after,
+.el-table--border .el-table__cell.is-last-column {
+  border-right: none !important;
+} 
